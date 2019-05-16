@@ -74,29 +74,60 @@ class OverlayView: UIView {
         print("*******************************")
         
         if hitView == self {
-            guard let cutoutPath = self.cutoutPath else {
-                return hitView
-            }
-
-            if !self.allowTouchInsideCutoutPath {
-                return hitView
-            }
-
-            if cutoutPath.contains(point) {
+            if cutoutPathContains(point) || stopTutorialCutoutPathContains(point) {
                 return nil
-            } else {
-                guard let stopTutorialCutoutPath = self.stopTutorialCutoutPath else {
-                    return hitView
-                }
-                
-                if stopTutorialCutoutPath.contains(point) {
-                    return nil
-                } else {
-                    return hitView
-                }
             }
+//            guard let cutoutPath = self.cutoutPath else {
+//                return hitView
+//            }
+//
+//            if !self.allowTouchInsideCutoutPath {
+//                return hitView
+//            }
+//
+//            if cutoutPath.contains(point) {
+//                return nil
+//            } else {
+//                guard let stopTutorialCutoutPath = self.stopTutorialCutoutPath else {
+//                    return hitView
+//                }
+//
+//                if stopTutorialCutoutPath.contains(point) {
+//                    return nil
+//                } else {
+//                    return hitView
+//                }
+//            }
         }
 
         return hitView
+    }
+    
+    private func cutoutPathContains(point: CGPoint) -> Bool {
+        guard let cutoutPath = self.cutoutPath else {
+            return false
+        }
+        
+        if !self.allowTouchInsideCutoutPath {
+            return false
+        }
+        
+        if cutoutPath.contains(point) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func stopTutorialCutoutPathContains(point: CGPoint) -> Bool {
+        guard let stopTutorialCutoutPath = self.cutoutPath else {
+            return false
+        }
+        
+        if stopTutorialCutoutPath.contains(point) {
+            return true
+        } else {
+            return false
+        }
     }
 }
