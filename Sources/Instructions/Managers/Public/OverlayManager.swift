@@ -82,6 +82,16 @@ public class OverlayManager {
             overlayView.stopTutorialCutoutPath = newValue
         }
     }
+    
+    public var onStopTutorial: (()->Void)? {
+        get {
+            return overlayView.onStopTutorial
+        }
+        
+        set {
+            overlayView.onStopTutorial = newValue
+        }
+    }
 
     /// Used to temporarily enable touch forwarding isnide the cutoutPath.
     public var allowTouchInsideCutoutPath: Bool {

@@ -29,6 +29,8 @@ class OverlayView: UIView {
 
     var cutoutPath: UIBezierPath?
     var stopTutorialCutoutPath: UIBezierPath?
+    
+    var onStopTutorial: (()->Void)?
 
     let holder: UIView
     let ornaments: UIView
@@ -125,6 +127,7 @@ class OverlayView: UIView {
         }
         
         if stopTutorialCutoutPath.contains(point) {
+            onStopTutorial?()
             return true
         } else {
             return false
