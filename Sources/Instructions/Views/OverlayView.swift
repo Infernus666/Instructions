@@ -28,6 +28,7 @@ class OverlayView: UIView {
     internal static let sublayerName = "Instructions.OverlaySublayer"
 
     var cutoutPath: UIBezierPath?
+    var stopTutorialCutoutPath: UIBezierPath?
 
     let holder: UIView
     let ornaments: UIView
@@ -78,7 +79,15 @@ class OverlayView: UIView {
             if cutoutPath.contains(point) {
                 return nil
             } else {
-                return hitView
+                guard let stopTutorialCutoutPath = self.stopTutorialCutoutPath else {
+                    return hitView
+                }
+                
+                if stopTutorialCutoutPath.contains(point) {
+                    return nil
+                } else {
+                    return hitView
+                }
             }
         }
 

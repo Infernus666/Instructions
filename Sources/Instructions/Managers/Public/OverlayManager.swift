@@ -72,6 +72,16 @@ public class OverlayManager {
             overlayView.cutoutPath = newValue
         }
     }
+    
+    public var stopTutorialCutoutPath: UIBezierPath? {
+        get {
+            return overlayView.stopTutorialCutoutPath
+        }
+        
+        set {
+            overlayView.stopTutorialCutoutPath = newValue
+        }
+    }
 
     /// Used to temporarily enable touch forwarding isnide the cutoutPath.
     public var allowTouchInsideCutoutPath: Bool {
