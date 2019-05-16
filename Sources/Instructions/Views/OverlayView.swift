@@ -67,6 +67,12 @@ class OverlayView: UIView {
     override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let hitView = super.hitTest(point, with: event)
 
+        print("*******************************")
+        print(stopTutorialCutoutPath?.bounds)
+        print(cutoutPath?.bounds)
+        print(point)
+        print("*******************************")
+        
         if hitView == self {
             guard let cutoutPath = self.cutoutPath else {
                 return hitView
