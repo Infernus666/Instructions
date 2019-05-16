@@ -74,7 +74,7 @@ class OverlayView: UIView {
         print("*******************************")
         
         if hitView == self {
-            if cutoutPathContains(point) || stopTutorialCutoutPathContains(point) {
+            if cutoutPathContains(point: point) || stopTutorialCutoutPathContains(point: point) {
                 return nil
             }
 //            guard let cutoutPath = self.cutoutPath else {
