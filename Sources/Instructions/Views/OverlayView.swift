@@ -120,7 +120,7 @@ class OverlayView: UIView {
     }
     
     private func stopTutorialCutoutPathContains(point: CGPoint) -> Bool {
-        guard let stopTutorialCutoutPath = self.cutoutPath else {
+        guard let stopTutorialCutoutPath = self.stopTutorialCutoutPath else {
             return false
         }
         
